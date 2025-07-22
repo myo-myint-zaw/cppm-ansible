@@ -1,0 +1,21 @@
+{
+  "name": "{{ item.name }}",
+  "description": "{{ item.description }}",
+  "default_role_name": "{{ item.default_role_name }}",
+  "rule_combine_algo": "first-applicable",
+  "rules": [
+    {
+      "match_type": "OR",
+      "role_name": "{{ item.role_name }}",
+      "condition": [
+        {
+          "type": "{{ item.type }}",
+          "name": "memberOf",
+          "oper": "CONTAINS",
+          "value": "{{ item.value }}",
+          "value_disp_name": "{{ item.value }}"
+        }
+      ]
+    }
+  ]
+}

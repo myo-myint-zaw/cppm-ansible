@@ -1,0 +1,20 @@
+{
+  "name": "{{ item.name }}",
+  "description": "{{ item.description }}",
+  "enforcement_type": "TACACS",
+  "default_enforcement_profile": "{{ item.default_enforcement_profile }}",
+  "rule_eval_algo": "first-applicable",
+  "rules": [
+    {
+      "enforcement_profile_names": ["{{ item.enforcement_profile_names }}"],
+      "condition": [
+        {
+          "type": "Tips",
+          "name": "Role",
+          "oper": "EQUALS",
+          "value": "{{ item.role_name }}"
+        }
+      ]
+    }
+  ]
+}

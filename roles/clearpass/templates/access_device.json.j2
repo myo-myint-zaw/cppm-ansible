@@ -1,0 +1,13 @@
+{
+  "name": "{{ item.name }}",
+  "description": "{{ item.description }}",
+  "ip_address": "{{ item.ip_address }}",
+  "tacacs_secret": "{{ item.tacacs_secret }}",
+  "vendor_name": "{{ item.vendor_name }}",
+  "coa_capable": false,
+  "coa_port": 3799,
+  "radsec_enabled": false,
+  "attributes": {
+    "Device Type": "{{ item['Device Type'] }}"
+  }
+}

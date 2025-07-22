@@ -1,0 +1,7 @@
+- name: Apply ClearPass Configurations
+  hosts: clearpass
+  gather_facts: no
+  vars:
+    excel_file: combined_clearpass_data.xlsx
+  roles:
+    - clearpass

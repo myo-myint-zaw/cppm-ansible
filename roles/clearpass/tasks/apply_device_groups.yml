@@ -1,0 +1,14 @@
+- name: Post network device groups to ClearPass
+  uri:
+    url: "https://{{ inventory_hostname }}/api/network-device-group"
+    method: POST
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: "Bearer {{ bearer_token }}"
+    body: "{{ lookup('template', 'device_group.json.j2') | from_yaml }}"
+    body_format: json
+    validate_certs: false
+  loop: "{{ excel_data.rows }}"
+  loop_control:
+    label: "{{ item.name }}"

@@ -1,0 +1,14 @@
+- name: Post network access devices to ClearPass
+  uri:
+    url: "https://{{ inventory_hostname }}/api/network-device"
+    method: POST
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: "Bearer {{ bearer_token }}"
+    body: "{{ lookup('template', 'access_device.json.j2') | from_yaml }}"
+    body_format: json
+    validate_certs: false
+  loop: "{{ excel_data.rows }}"
+  loop_control:
+    label: "{{ item.name }}"
